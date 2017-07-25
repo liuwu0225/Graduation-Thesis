@@ -1,0 +1,39 @@
+#-*- coding:utf8 -*-
+
+import hashlib
+import socket
+import base64
+
+class mwFirefoxHelper():
+    CLASS_TAG = ''
+
+    def __init__(self):
+	self.CLASS_TAG = "mwFirefoxHelper.class"
+
+    def parse_data(self, msg):
+        v = ord(msg[1]) & 0x7f
+        if v == 0x7e:
+            p = 4
+        elif v == 0x7f:
+            p = 10
+        else:
+            p = 2
+        mask = msg[p:p+4]
+        data = msg[p+4:]
+    
+        return ''.join([chr(ord(v) ^ ord(mask[k%4])) for k, v in enumerate(data)])
+
+    def parse_headers(self, msg):
+        headers = {}
+        header, data = msg.split('\r\n\r\n', 1)
+        for line in header.split('\r\n')[1:]:
+            key, value = line.split(': ', 1)
+            headers[key] = value
+        headers['data'] = data
+        return headers
+
+    def generate_token(self, msg):
+        key = msg + '258EAFA5-E914-47DA-95CA-C5AB0DC85B11'
+        ser_key = hashlib.sha1(key).digest()
+        return base64.b64encode(ser_key)
+
