@@ -1,0 +1,36 @@
+{
+
+  "manifest_version": 2,
+  "name": "Middleware",
+  "version": "1.0",
+
+  "description": "Middleware Extension For Firefox",
+  "homepage_url": "https://www.fudan.edu.cn",
+  "icons": {
+    "48": "icons/beasts-48.png"
+  },
+
+  "permissions": [
+    "activeTab",
+    "tabs",
+    "cookies",
+    "<all_urls>"
+  ],
+
+  "browser_action": {
+    "default_icon": "icons/beasts-32.png",
+    "default_title": "Middleware",
+    "default_popup": "popup/middleware_login.html"
+  },
+
+  "web_accessible_resources": [
+    "beasts/frog.jpg",
+    "beasts/turtle.jpg",
+    "beasts/snake.jpg"
+  ],
+
+  "background": {
+    "scripts": ["background_scripts/socket_background.js"]
+  }
+
+}

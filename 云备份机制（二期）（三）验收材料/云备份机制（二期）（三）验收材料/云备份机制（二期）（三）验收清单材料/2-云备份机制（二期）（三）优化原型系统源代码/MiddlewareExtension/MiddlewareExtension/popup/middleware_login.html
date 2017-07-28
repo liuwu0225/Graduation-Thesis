@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+
+</html>
+    <head>
+        <meta charset="utf-8">
+    </head>
+    <body>
+        <h4>Middware Extension For Firefox</h4>
+        <div id="login">
+    	    <table>
+        		<tr>
+        		    <th align="left">email:</th>
+        		    <th><input id="email" type="text"/></th>
+        		</tr>
+        		<tr>
+        		    <th>password:</th>
+        		    <th><input id="pwd" type="password"/></th>
+        		</tr>
+        		<tr>
+        		    <th></th>
+        		    <th align="right"><input id="btnConnect" type="button" value="登陆"/></th>
+        		</tr>
+    	    </table>
+	    </div>
+	    <div id="main">
+            <div id="welcome">
+                <h id="username">welcome XXX !</h>
+            </div>
+            <div>
+                <!--<input id="request" type="text" value="hello"/>-->
+                <select id="reqSelect">
+                  <!--<option value ="get container">Get Container</option>-->
+                  <option value ="create container">Create Container</option>
+		  <option value="delete container">Delete Container</option>
+                  <option value ="create directory">Create Directory</option>
+                  <option value="clear recycler">Clear Recycler</option>
+                  <option value="get quota">Cet Quota</option>
+                  <option value="set quota">Set Quota</option>
+                  <option value="delete directory">Delete Directory</option>
+                  <option value="delete file">Delete File</option>
+                  <option value="upload file">Upload File</option>
+                  <option value="rename directory">Rename Directory</option>
+                  <option value="rename file">Rename File</option>
+                </select>
+            </div>
+            <div>
+                <table id="params">
+                    <tr id="p1">
+                        <th align="left" id="p1Name" style="font-weight:normal; font-size:14px">param1:</th>
+                        <th><input id="p1Value" type="text"/></th>
+                    </tr>
+                    <tr id="p2">
+                        <th align="left" id="p2Name" style="font-weight:normal; font-size:14px">param2:</th>
+                        <th><input id="p2Value" type="text"/></th>
+                    </tr>
+                    <tr>
+                        <th align="left"><input id="btnSend" type="button" value="Send"/></th>
+                    </tr>
+                </table>
+		<!--<th align="left"><input id="btnSend" type="button" value="Send"/></th>-->
+                <!--<h id="p1">param1:</h>
+                <input id="param1" type="text" /><br id="br1">
+                <h id="p2">param2:</h>
+                <input id="param2" type="text" /><br>
+                <input id="btnSend" type="button" value="Send" />-->
+            </div>
+            <div>
+                <div>
+                    Result From Middleware:
+                </div>
+                <textarea id="txtContent" cols="50" rows="10" readonly="readonly"></textarea>
+            </div>
+	    </div>
+    </body>
+
+    <script src="mwconnect.js"></script>
+</html>
